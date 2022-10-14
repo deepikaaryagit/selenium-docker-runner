@@ -1,0 +1,44 @@
+version: "3"
+services: 
+  hub:
+    image: selenium/hub:3.14
+    ports: 
+      - "4444:4444"
+  chrome:
+    image: selenium/node-chrome-debug:latest
+    shm_size: 1gb
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+  firefox:
+    image: selenium/node-firefox-debug:3.141.59
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+    shm_size: 1gb
+  test-module-firefox:
+    image: deepikaarya/selenium-dockerimage
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - HUB_HOST=hub
+      - BROWSER=firefox
+      - MODULE=testng.xml
+    volumes:
+      - ./test-result-firefox:/Users/deearya/myShare/test-output
+  test-module-chrome:
+    image: deepikaarya/selenium-dockerimage
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - HUB_HOST=hub
+      - BROWSER=chrome
+      - MODULE=testng.xml
+    volumes:
+      - ./test-result-chrome:/Users/deearya/myShare/test-output
+
+ 
