@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages {
+
+         stage('Pull Latest Image') {
+            steps {
+                 bat "docker pull deepikaarya/selenium-dockerhub-newimage"
+            }
+        }
         stage('Run Test') {
             steps {
                  bat "docker-compose up"
