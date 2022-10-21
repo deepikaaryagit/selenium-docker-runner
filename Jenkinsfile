@@ -4,7 +4,7 @@ pipeline {
 
          stage('Pull Latest Image') {
             steps {
-                 bat "docker pull deepikaarya/selenium-dockerhub-newimage"
+                 bat "docker pull deepikaarya/mydocker-myimage"
             }
         }
         stage('Run Test') {
