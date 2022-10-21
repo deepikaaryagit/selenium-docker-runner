@@ -19,7 +19,7 @@ services:
       - HUB_HOST=hub
     shm_size: 1gb
   test-module-firefox:
-    image: deepikaarya/selenium-dockerhub-newimage
+    image: deepikaarya/mydocker-myimage
     depends_on:
       - chrome
       - firefox
@@ -30,7 +30,7 @@ services:
     volumes:
       - ./test-result-firefox:/Users/deearya/myShare/test-output
   test-module-chrome:
-    image: deepikaarya/selenium-dockerhub-newimage
+    image: deepikaarya/mydocker-myimage
     depends_on:
       - chrome
       - firefox
@@ -40,5 +40,3 @@ services:
       - MODULE=testng.xml
     volumes:
       - ./test-result-chrome:/Users/deearya/myShare/test-output
-
- 
