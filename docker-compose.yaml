@@ -32,6 +32,7 @@ services:
   test-module-chrome:
     image: deepikaarya/mydocker-myimage
     depends_on:
+      - hub
       - chrome
       - firefox
     environment:
