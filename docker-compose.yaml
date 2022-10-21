@@ -1,6 +1,6 @@
 version: "3"
 services: 
- firefox:
+  firefox:
     image: selenium/node-firefox-debug:3.141.59
     shm_size: 1gb
   test-module-firefox:
