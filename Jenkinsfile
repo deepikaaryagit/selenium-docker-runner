@@ -20,7 +20,7 @@ pipeline {
         stage('Bring Grid Down') {
             steps {
                bat "docker-compose down"
-                bat "Bring Grid Down"
+               
             }
         }
       
