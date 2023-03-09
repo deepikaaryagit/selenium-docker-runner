@@ -17,12 +17,16 @@ pipeline {
                  bat "docker-compose up test-module-firefox test-module-chrome"
             }
         }
-        stage('Bring Grid Down') {
-            steps {
-               bat "docker-compose down"
-               
+   
+
+        }
+        post{
+            always{
+                archiveArtifacts artifacts:'output/**'
+                   bat "docker-compose down"
             }
+
         }
       
     }
-} 
+ 
