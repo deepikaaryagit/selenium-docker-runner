@@ -28,7 +28,7 @@ services:
       - BROWSER=firefox
       - MODULE=testng.xml
     volumes:
-      - ./test-result-firefox:/Users/deearya/myShare/test-output
+      - ./output/test-result-firefox:/Users/deearya/myShare/test-output
   test-module-chrome:
     image: deepikaarya/mydocker-myimage
     depends_on:
@@ -40,4 +40,4 @@ services:
       - BROWSER=chrome
       - MODULE=testng.xml
     volumes:
-      - ./test-result-chrome:/Users/deearya/myShare/test-output
+      - ./output/test-result-chrome:/Users/deearya/myShare/test-output
